@@ -1,3 +1,6 @@
 [submodule "liga"]
 	path = liga
 	url = git@github.com:ezequielramis/liga
+[submodule "nerd-fonts"]
+	path = nerd-fonts
+	url = https://github.com/ryanoasis/nerd-fonts

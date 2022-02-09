@@ -49,6 +49,12 @@ config = {
         # "dollar",
         # "parenleft",
         # "parenright",
+        "uni2325", # option
+        "uni2303", # arrowheadup
+        "uni2326", # eraseright
+        "uni232B", # eraseleft
+        "uni2327", # clear
+        "uni2318", # placeofinterestsign
     ],
     "features": {
         "calt": [

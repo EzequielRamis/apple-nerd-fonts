@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Font Tester</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="liga/test/fonts.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="liga/test/fira.css" media="screen" />
+    <style>
+        @font-face {
+            font-family: 'Fallback';
+            src: url('liga/test/UnicodeBMPFallback.ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            height: 100vh;
+        }
+        main {
+            padding: 1rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            grid-gap: 1rem;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: -moz-available;
+            flex: 1;
+            font-synthesis: none;
+        }
+        .inputs {
+            display: flex;
+            grid-gap: 1rem;
+        }
+        #size {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        </object>
+        <div class="inputs">
+            <label for="size" id="size-label">32</label>
+            <input type="range" id="size" step="2" min="10" max="128"
+                oninput="changeSize(this.value)"
+            >
+            <input type="button" value="clear" id="clear"
+                onclick="clearArea()"
+            >
+            <input type="button" value="showcases" id="showcases"
+                onclick="showcases()"
+            >
+            <label for="toggle-fira" id="toggle-fira-label">firacode fallback</label>
+            <input type="checkbox" id="toggle-fira"
+                onclick="toggleFira(this.checked)"
+            >
+            <label for="toggle-liga" id="toggle-liga-label">ligated</label>
+            <input type="checkbox" id="toggle-liga" checked
+                onclick="toggleLiga(this.checked)"
+            >
+            <select name="fonts" id="fonts"
+                onchange="selectFont(this.value)"
+            >
+            <!--#include virtual="liga/test/fonts.html" -->
+            </select>
+        </div>
+        <textarea id="area" ></textarea>
+    </main>
+</body>
+<script>
+    const area = document.querySelector("#area");
+    const select = document.querySelector("#fonts");
+    const size = document.querySelector("#size");
+    const fira = document.querySelector("#toggle-fira");
+    const liga = document.querySelector("#toggle-liga");
+    const fall = ", 'Fallback'";
+    const initialSize = 32;
+    
+    let changeSize = (s) => {
+        document.querySelector("#size-label").innerHTML = s;
+        area.style.fontSize = `${s}px`;
+    };
+    let clearArea = () => area.value = "";
+    let showcases = () => area.value = `<!--#include virtual="liga/test/showcases.txt" -->`;
+    let toggleFira = c => {
+        sizeBackup = size.value;
+        area.style.font = `${area.style.fontStyle} ${select.value} ${c ? ", 'FiraCode'" : ""} ${fall}`;
+        area.style.fontSize = `${sizeBackup}px`;
+    }
+    let toggleLiga = c => area.style.fontStyle = c ? "italic" : "normal";
+    let selectFont = f => {
+        sizeBackup = size.value;
+        area.style.font = `${area.style.fontStyle} ${f} ${fira.checked ? ", 'FiraCode'" : ""} ${fall}`;
+        area.style.fontSize = `${sizeBackup}px`;
+    }
+    
+    area.style.font = select.value + fall;
+    changeSize(initialSize);
+    size.value = initialSize;
+    toggleLiga(true)
+    showcases();
+</script>
+</html>

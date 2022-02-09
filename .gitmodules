@@ -1,10 +1,3 @@
-[submodule "git-partial-submodule"]
-	path = modules/git-partial-submodule
-	url = https://github.com/Reedbeta/git-partial-submodule
-[submodule "ligaturizer"]
-	path = modules/ligaturizer
-	url = https://github.com/ToxicFrog/Ligaturizer
-[submodule "nerd-fonts"]
-	path = modules/nerd-fonts
-	url = https://github.com/ryanoasis/nerd-fonts
-	sparse-checkout = src/glyphs src/svgs font-patcher
+[submodule "liga"]
+	path = liga
+	url = git@github.com:ezequielramis/liga

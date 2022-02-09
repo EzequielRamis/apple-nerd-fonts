@@ -9,6 +9,8 @@ sf_arabic="${apple_url}/SF-Arabic.dmg"
 ny="${apple_url}/NY.dmg"
 # symbols="${apple_url}/SF-Symbols-3.1.dmg"
 
+mkdir images
+
 wget "${sf_pro}" -O ./images/SF-Pro.dmg
 wget "${sf_compact}" -O ./images/SF-Compact.dmg
 wget "${sf_mono}" -O ./images/SF-Mono.dmg

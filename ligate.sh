@@ -16,10 +16,10 @@ PREFIX="Liga "
 # OUTPUT_NAME=""
 
 # Where the generated font files will be located
-OUTPUT_DIR="$SRC/build/$PREFIX""SF-Mono"
+OUTPUT_DIR="$SRC/fonts/$PREFIX""SF Mono"
 
 # Where the input font files are located
-INPUT_DIR="$SRC/fonts/SF-Mono"
+INPUT_DIR="$SRC/fonts/SF Mono"
 
 # The python file to copy the configuration from.
 CONFIG="$SRC/config.py"

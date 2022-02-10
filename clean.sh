@@ -2,4 +2,4 @@
 
 shopt -s globstar
 
-rm -rf liga/test/fonts.* build liga/logs ./**/__pycache__
+rm -rf liga/test/fonts.* fonts/Liga* fonts/*Complete liga/logs ./**/__pycache__
